@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+
+  --color-bg: #f3f2ee;
+  --color-surface: #ffffff;
+  --color-wash: #e8e6e0;
+  --color-fg: #1c1917;
+  --color-muted: #57534e;
+  --color-primary: #0f766e;
+  --color-primary-strong: #0c5f59;
+  --color-primary-soft: #e5f3f1;
+  --color-on-primary: #ffffff;
+  --color-line: #e6e4de;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-primary-soft);
+    color: var(--color-fg);
+  }
+
+  h1 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@utility panel {
+  background-color: var(--color-surface);
+  box-shadow:
+    0 0 0 1px rgb(28 25 23 / 0.06),
+    0 1px 2px -1px rgb(28 25 23 / 0.05),
+    0 12px 32px -18px rgb(28 25 23 / 0.18);
+}
+
+@utility stat-value {
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+.editor-shell {
+  background-color: var(--color-surface);
+  box-shadow:
+    0 0 0 1px rgb(28 25 23 / 0.06),
+    0 1px 2px -1px rgb(28 25 23 / 0.05),
+    0 12px 32px -18px rgb(28 25 23 / 0.18);
+  transition: box-shadow 180ms ease-out;
+}
+
+.editor-shell:focus-within {
+  box-shadow:
+    0 0 0 1px rgb(15 118 110 / 0.55),
+    0 0 0 4px rgb(15 118 110 / 0.12),
+    0 12px 32px -18px rgb(28 25 23 / 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editor-shell {
+    transition: none;
+  }
+}
